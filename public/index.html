@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="MyServiceModule">
+<head>
+  <meta charset="utf-8">
+  <title>Last 10 WU Session</title>
+  <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+  <script src="/assets/javascripts/angular.js"></script>
+  <script src="/assets/javascripts/controllers.js"></script>
+</head>
+<body ng-controller="UsageReportControler">
+
+<table border="1">
+	<tr>
+		<th>User</th>
+		<th>Date</th>
+		<th>Panel</th>
+		<th>Module</th>
+		<th>Version</th>
+		<th>Build</th>
+	</tr>
+	<tr ng-repeat="report in reports">
+		<td ng-click="showPicture(report.USER_ACCOUNT)">{{report.USER_ACCOUNT}}</td>
+		<td>{{report.CREATION_DATE | date:'medium'}}</td>
+		<td>{{report.STARTED_CLASS_NAME}}</td>
+		<td>{{report.MODULENAME}}</td>
+		<td>{{report.SOFTWARE_VERSION}}</td>
+		<td>{{report.SOFTWARE_BUILD}}</td>
+	</tr>
+</table>
+<img ng-src="{{mainImageUrl}}">
+</body>
+</html>
